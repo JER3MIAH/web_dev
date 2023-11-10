@@ -32,22 +32,25 @@ h3 {
 .top-container {
   background-color: #e0f4ff;
 }
-.middle-container {
-  height: 200px;
-  width: 200px;
-  background-color: red;
-}
-.bottom-container {
-  height: 200px;
-  width: 200px;
-  background-color: blue;
-}
 
 .devv {
   text-decoration: underline;
 }
 
+.skill-image {
+  height: 200px;
+  border-radius: 100%;
+}
+.gaming-image {
+  height: 200px;
+}
+
 /* id selectors */
+#profileImage {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
 #cloud1 {
   position: absolute;
   right: 0;
