@@ -24,3 +24,27 @@ body {
 .devv {
   text-decoration: underline;
 }
+
+.red {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}
+
+.blue {
+  background-color: blue;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: 100px;
+  bottom: 100px;
+}
+
+.yellow {
+  background-color: yellow;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  left: 200px;
+  bottom: 200px;
+}
