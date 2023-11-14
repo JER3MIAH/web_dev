@@ -21,12 +21,21 @@
 
 .nav-link {
   font-size: 1.2rem;
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
   font-weight: bold;
 }
 
+.download-button {
+  margin: 5% 5% 5% 0;
+}
+
+.title-image {
+  width: 60%;
+  transform: rotate(25deg);
+}
+
 #brand-name {
-  font-size: 1cm;
+  font-size: 0.7cm;
 }
 
 #title {
