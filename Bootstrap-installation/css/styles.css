@@ -1,19 +1,44 @@
-h1 {
-  font-family: "Montserrat-Thick", sans-serif;
-  size: 3rem;
-  line-height: 1.5;
-}
-
 /** class selectors */
 
-.container {
-  padding: 3% 20%;
+.container-md {
+  padding: 3% 20% 3% 20%;
 }
 
 /** id selectors */
 
+#navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 3rem;
+}
+
+.nav-item {
+  padding: 0 16px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: 'Ubuntu';
+  font-weight: bold;
+}
+
+#brand-name {
+  font-size: 1cm;
+}
+
 #title {
   background-color: #ff4c68;
+  color: #fff;
+}
+
+#title-header {
+  font-family: "Montserat", sans-serif;
+  font-size: 2.5em;
+  font-weight: 900;
+  line-height: 1.5;
 }
 
 /* font-family: 'Lato', sans-serif;

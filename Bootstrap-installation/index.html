@@ -18,21 +18,40 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous"
         />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100;1,700&family=Merriweather&family=Montserrat:wght@200;400&family=Outfit:wght@300&family=Sacramento&family=Ubuntu&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100;1,700&family=Merriweather&family=Montserrat:wght@200;400;900&family=Outfit:wght@300&family=Sacramento&family=Ubuntu&display=swap"
           rel="stylesheet"
         />
+
+        <!-- Font awesome-->
+        <script
+          src="https://kit.fontawesome.com/4dc8082ff5.js"
+          crossorigin="anonymous"
+        ></script>
+
+        <!-- Bootstrap Scripts-->
+        <script
+          src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+          crossorigin="anonymous"
+        ></script>
         <title>TinDog</title>
       </head>
 
       <body>
         <section id="title">
-          <div class="container">
+          <div class="container-md">
             <!-- Nav Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark">
-              <a class="navbar-brand" href="">tinDog</a>
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+              <a id="brand-name" class="navbar-brand" href="">tinDog</a>
               <button
                 class="navbar-toggler"
                 type="button"
@@ -64,8 +83,12 @@
             <div class="row">
               <div class="col-lg-6 col-md-12 col-sm-12">
                 <h1 id="title-header">Meet new and interesting dogs nearby.</h1>
-                <button type="button">Download</button>
-                <button type="button">Download</button>
+                <button type="button" class="btn btn-lg btn-dark">
+                  <i class="fa-brands fa-apple download-button"></i> Download
+                </button>
+                <button type="button" class="btn btn-lg btn-outline-light">
+                  <i class="fa-brands fa-google-play"></i> Download
+                </button>
               </div>
               <div class="col-lg-6 col-md-12 col-sm-12">
                 <img src="images/iphone6.png" alt="iphone-mockup" />
@@ -153,16 +176,6 @@
         <footer id="footer">
           <p>© Copyright TinDog</p>
         </footer>
-        <script
-          src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-          crossorigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-          crossorigin="anonymous"
-        ></script>
       </body>
     </html>
   </head>
