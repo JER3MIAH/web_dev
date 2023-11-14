@@ -140,6 +140,34 @@ p {
   text-align: center;
 }
 
+/*! Call to Action  */
+
+#cta {
+  background-color: #ff4c6b;
+  text-align: center;
+}
+
+#cta-header {
+  font-family: "Montserat", sans-serif;
+  font-size: 2.5em;
+  font-weight: 900;
+  line-height: 1.5;
+  color: #fff;
+}
+
+/*! footer */
+
+#footer {
+  text-align: center;
+  padding: 120px;
+  font-weight: 500;
+}
+
+.footer-icons{
+  margin: auto 10px;
+}
+
+/** media query */
 @media screen and (max-width: 1020px) {
   #title {
     text-align: center;
