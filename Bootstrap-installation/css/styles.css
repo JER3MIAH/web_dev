@@ -4,6 +4,12 @@
   padding: 3% 20% 3% 20%;
 }
 
+/*
+  <i class="fa-solid fa-circle-check"></i>
+  <i class="fa-solid fa-bullseye"></i>
+  <i class="fa-solid fa-heart"></i>
+ */
+
 /** id selectors */
 
 #navbar {
@@ -56,3 +62,27 @@
   font-family: 'Outfit', sans-serif;
   font-family: 'Sacramento', cursive;
   font-family: 'Ubuntu', sans-serif; */
+
+/*! Features Section */
+.feature-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: "Montserrat";
+}
+
+.feature-col {
+  text-align: center;
+}
+
+.feature-icon {
+  color: #ef8172;
+  font-size: 2rem;
+}
+
+.feature-icon:hover {
+  color: #ff4c6b;
+}
+
+p {
+  color: #8f8f8f;
+}
