@@ -139,3 +139,13 @@ p {
 .card {
   text-align: center;
 }
+
+@media screen and (max-width: 1020px) {
+  #title {
+    text-align: center;
+  }
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}
