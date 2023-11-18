@@ -1,5 +1,7 @@
-document.querySelector(".w").addEventListener("click", onClick);
+let doc = document.querySelectorAll(".drum");
 
-function onClick() {
-    alert("Button clicked");
+for (let i = 0; i < doc.length; i++) {
+    doc[i].addEventListener("click", function () {
+        alert("Button clicked");
+    });
 }
