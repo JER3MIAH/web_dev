@@ -18,6 +18,7 @@ let doc = document.querySelectorAll(".drum");
 for (let i = 0; i < doc.length; i++) {
     doc[i].addEventListener("click", function () {
         handleButtonClick(this.textContent);
+        buttonAnimation(this.textContent);
     });
 }
 
@@ -28,6 +29,7 @@ document.addEventListener("keydown", function (event) {
     const keyPressed = event.key.toLowerCase();
     if (buttons.includes(keyPressed)) {
         handleButtonClick(keyPressed);
+        buttonAnimation(keyPressed)
     }
 });
 
@@ -39,3 +41,12 @@ function handleButtonClick(buttonText) {
     }
 }
 
+
+//* Animation
+function buttonAnimation(currentKey) {
+    let activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function () {
+        activeButton.classList.remove("pressed")
+    }, 100);
+}
