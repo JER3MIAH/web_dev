@@ -1,9 +1,4 @@
-let doc = document.querySelectorAll(".drum");
-
-for (let i = 0; i < doc.length; i++) {
-    doc[i].addEventListener("click", onClick);
-}
-
+//* Variables
 const listOfAudio = [
     "sounds/tom-1.mp3",
     "sounds/tom-2.mp3",
@@ -16,9 +11,28 @@ const listOfAudio = [
 
 const buttons = ["w", "a", "s", "d", "j", "k", "l"];
 
-function onClick() {
-    let buttonIndex = buttons.indexOf(this.textContent);
 
+//* Add event listeners for button clicks
+let doc = document.querySelectorAll(".drum");
+
+for (let i = 0; i < doc.length; i++) {
+    doc[i].addEventListener("click", function () {
+        handleButtonClick(this.textContent);
+    });
+}
+
+
+//* Add event listener for keydown events on the document
+document.addEventListener("keydown", function (event) {
+    // Check if the pressed key corresponds to one of the drum buttons
+    const keyPressed = event.key.toLowerCase();
+    if (buttons.includes(keyPressed)) {
+        handleButtonClick(keyPressed);
+    }
+});
+
+function handleButtonClick(buttonText) {
+    let buttonIndex = buttons.indexOf(buttonText);
     if (buttonIndex >= 0) {
         let audio = new Audio(listOfAudio[buttonIndex]);
         audio.play();
