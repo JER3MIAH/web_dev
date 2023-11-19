@@ -4,23 +4,6 @@ const buttonSounds = ["sounds/red.mp3", "sounds/blue.mp3", "sounds/green.mp3", "
 let gamePattern = [];
 let userClickedPattern = [];
 
-// let randomChosenColour = buttonColours[nextSequence()];
-// gamePattern.push(randomChosenColour);
-
-// function nextSequence() {
-//     return Math.floor(Math.random() * 4);
-// }
-
-// let btnTapped = $("#" + randomChosenColour);
-
-
-$(".btn").on("click", function () {
-    let userChosenColour = $(this).attr("id");
-    userClickedPattern.push(userChosenColour);
-    console.log(userClickedPattern);
-});
-
-
 //* Button sound and animation functions
 $(".btn").on("click", function () {
     onButtonClick(this);
@@ -41,3 +24,31 @@ function audioPlay(element) {
         audio.play();
     }
 }
+
+//* next sequence
+function nextSequence() {
+    let randomNumber = Math.floor(Math.random() * 4);
+    let randomChosenColour = buttonColours[randomNumber];
+    gamePattern.push(randomChosenColour);
+
+    onButtonClick("#" + randomChosenColour);
+    let audio = new Audio(buttonSounds[randomNumber]);
+    audio.play();
+}
+
+let level = 0;
+let gameStarted = false;
+
+
+
+$(document).on("keydown", function () {
+    nextSequence()
+});
+
+
+$(".btn").on("click", function () {
+    let userChosenColour = $(this).attr("id");
+    userClickedPattern.push(userChosenColour);
+    console.log(userClickedPattern);
+});
+
