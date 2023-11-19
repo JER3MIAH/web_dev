@@ -7,7 +7,7 @@ let userClickedPattern = [];
 let level = 0;
 let gameStarted = false;
 
-
+//* ---------------------------------------------------------------
 $(".btn").on("click", function () {
     let userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
@@ -29,10 +29,7 @@ $(document).on("keydown", function () {
 
 //* Button sound and animation functions
 function onButtonClick(element) {
-    $(element).addClass("pressed");
-    setTimeout(function () {
-        $(element).removeClass("pressed");
-    }, 100);
+    animate(element, "pressed", 100);
 }
 
 function audioPlay(element) {
@@ -57,6 +54,7 @@ function nextSequence() {
     audio.play();
 }
 
+//* ---------------------------------------------------------------
 function checkAnswer(currentLevel) {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
         console.log("success");
@@ -71,10 +69,7 @@ function checkAnswer(currentLevel) {
         let audio = new Audio("sounds/wrong.mp3");
         audio.play();
         console.log("wrong");
-        $("body").addClass("game-over");
-        setTimeout(function () {
-            $("body").removeClass("game-over");
-        }, 200);
+        animate("body", "game-over", 200);
 
         $("#level-title").text("Game Over, Press Any Key to Restart");
         startOver();
@@ -87,4 +82,9 @@ function startOver() {
     gameStarted = false;
 }
 
-
+function animate(element, className, duration) {
+    $(element).addClass(className);
+    setTimeout(function () {
+        $(element).removeClass(className);
+    }, duration);
+}
