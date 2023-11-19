@@ -27,10 +27,15 @@ $("h1").on("mouseover", function () {
 });
 
 //* Adding new elements
-$("h1").before("<button>New</button>");
-$("h1").after("<button>New</button>");
-$("h1").prepend("<button>New</button>");
-$("h1").append("<button>New</button>");
+// $("h1").before("<button>New</button>");
+// $("h1").after("<button>New</button>");
+// $("h1").prepend("<button>New</button>");
+// $("h1").append("<button>New</button>");
 
 //* removing elements
-$("button").remove();
+// $("button").remove();
+
+//* simple animations
+$("button").click(function () {
+    $("h1").slideToggle();
+});
