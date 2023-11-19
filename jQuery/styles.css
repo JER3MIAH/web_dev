@@ -1,5 +1,9 @@
-footer {
+.footer {
   margin-top: 5%;
   text-align: center;
   font-family: "Indie Flower", cursive;
+}
+
+.bold {
+  font-weight: bold;
 }
