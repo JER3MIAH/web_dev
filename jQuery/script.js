@@ -32,3 +32,5 @@ $("h1").after("<button>New</button>");
 $("h1").prepend("<button>New</button>");
 $("h1").append("<button>New</button>");
 
+//* removing elements
+$("button").remove();
