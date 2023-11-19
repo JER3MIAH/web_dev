@@ -12,3 +12,8 @@ $("button").text("Tap me");
 
 //* manipulating attributes with jQuery
 $("a").attr("href", "https://www.yahoo.com");
+
+//* Adding event listeners with jQuery
+$("button").click(function () {
+    $("h1").css("color", "yellow");
+});
