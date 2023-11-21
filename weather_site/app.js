@@ -5,7 +5,7 @@ const https = require("https");
 const app = express();
 
 app.get("/", function (req, res) {
-    const url = "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=" + apiKey + "&id=524901";
+    const url = "https://api.openweathermap.org/data/2.5/forecast?q=london&appid=" + apiKey + "&id=524901&units=metric";
 
     https.get(url, function (response) {
         let data = "";
@@ -17,18 +17,19 @@ app.get("/", function (req, res) {
         response.on("end", function () {
             try {
                 const weatherData = JSON.parse(data);
-
-                // Adjust this based on the structure of the response
                 const temp = weatherData.list[0].main.temp;
+                const des = weatherData.list[0].weather[0].description;
+                res.write("<h1>The temperature in london is " + temp + " degrees celcius</h1>");
+                res.write("<p>The weather description is currently: " + des + " </p>");
+                res.send();
 
                 console.log(temp);
+                console.log(des);
             } catch (error) {
                 console.error("Error parsing JSON:", error);
             }
         });
     });
-
-    res.send("Hey man!");
 });
 
 app.listen(3030, function () {
