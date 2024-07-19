@@ -39,7 +39,7 @@ function startRound() {
     gameOver = false;
     level += 1;
     myMoveSet = [];
-    let randomNumber = buttonList[getRandomInt(3)];
+    let randomNumber = buttonList[getRandomInt(4)];
     showAddedMove(randomNumber);
     correctMoveSet.push(randomNumber);
     changeHeaderText(`Level ${level}`);
