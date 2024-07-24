@@ -25,12 +25,12 @@ app.get("/", async (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-  const type = req.body['type'];
-  const participants = req.body["participants"];
+  const type = req.body.type;
+  const participants = req.body.participants;
 
   console.log(`${type} and ${participants}`);
   try {
-    const response = await axios.get(`https://bored-api.appbrewery.com/filter?type=${type}?participants=${type}`);
+    const response = await axios.get(`https://bored-api.appbrewery.com/filter?type=${type}&participants=${type}`);
     const result = response.data;
     const jsonString = JSON.stringify(result);
     const data = JSON.parse(jsonString);
