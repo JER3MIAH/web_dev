@@ -18,10 +18,9 @@ app.get("/", (req, res) => {
 app.get("/noAuth", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/random`);
-    const jsonString = JSON.stringify(response.data);
-    const data = JSON.parse(jsonString);
+    const data = JSON.stringify(response.data);
     console.log(data);
-    res.render("index.ejs", { content: data.secret });
+    res.render("index.ejs", { content: data });
   } catch (error) {
     res.render("index.ejs", {
       content: error.message,
@@ -39,10 +38,9 @@ app.get("/basicAuth", async (req, res) => {
       },
     });
     console.log(response);
-    const jsonString = JSON.stringify(response.data);
-    const data = JSON.parse(jsonString);
+    const data = JSON.stringify(response.data);
     console.log(data);
-    res.render("index.ejs", { content: data[0].secret });
+    res.render("index.ejs", { content: data });
   } catch (error) {
     res.render("index.ejs", {
       content: error.message,
@@ -53,10 +51,9 @@ app.get("/basicAuth", async (req, res) => {
 app.get("/apiKey", async (req, res) => {
   try {
     const response = await axios.get(`${API_URL}/filter?score=5&apiKey=${myAPIKey}`);
-    const jsonString = JSON.stringify(response.data);
-    const data = JSON.parse(jsonString);
+    const data = JSON.stringify(response.data);
     console.log(data);
-    res.render("index.ejs", { content: data[getRandomInt(data.length)].secret });
+    res.render("index.ejs", { content: data });
   } catch (error) {
     res.render("index.ejs", {
       content: error.message,
@@ -71,21 +68,14 @@ app.get("/bearerToken", async (req, res) => {
         Authorization: `Bearer ${myBearerToken}`
       },
     });
-    const jsonString = JSON.stringify(response.data);
-    const data = JSON.parse(jsonString);
-    console.log(data);
-    res.render("index.ejs", { content: data.secret });
+    const data = JSON.stringify(response.data);
+    res.render("index.ejs", { content: data });
   } catch (error) {
     res.render("index.ejs", {
       content: error.message,
     });
   }
 });
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
