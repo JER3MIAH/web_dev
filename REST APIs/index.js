@@ -54,10 +54,7 @@ app.post("/put-secret", async (req, res) => {
   try {
     const result = await axios.put(
       API_URL + "/secrets/" + searchId,
-      {
-        secret: req.body.secret,
-        score: req.body.score,
-      },
+      req.body,
       config,
     );
     res.render("index.ejs", { content: JSON.stringify(result.data) });
@@ -88,10 +85,6 @@ app.post("/delete-secret", async (req, res) => {
   try {
     const result = await axios.delete(
       API_URL + "/secrets/" + searchId,
-      {
-        secret: req.body.secret,
-        score: req.body.score,
-      },
       config,
     );
     res.render("index.ejs", { content: JSON.stringify(result.data) });
