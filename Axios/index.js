@@ -35,7 +35,7 @@ app.post("/", async (req, res) => {
     const jsonString = JSON.stringify(result);
     const data = JSON.parse(jsonString);
     console.log(data);
-    res.render("index.ejs", data[0]);
+    res.render("index.ejs", data[getRandomInt(data.length - 1)]);
   } catch (error) {
     console.error("Failed to make request:", error.message);
     res.render("index.ejs", {
@@ -43,6 +43,10 @@ app.post("/", async (req, res) => {
     });
   }
 });
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max) + 1
+}
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
