@@ -74,7 +74,6 @@ app.patch("/posts/:id", (req, res) => {
     if (title) post.title = title;
     if (content) post.content = content;
     if (author) post.author = author;
-
     res.json(post);
   } else {
     res.sendStatus(400);
