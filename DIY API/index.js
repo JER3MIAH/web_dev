@@ -7,27 +7,38 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+function authorize(req, res, next) {
+  const authHeader = req.query.key;
+
+  if (authHeader && authHeader === masterKey) {
+    next();
+  } else {
+    res.status(403).json({ error: 'Forbidden: Invalid or missing API key' });
+  }
+}
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
 app.get("/", (req, res) => {
-  res.send("Hiiiiiiiiiii");
+  res.json("Hiiiiiiiiiii");
 });
 
 //*1*. GET a random joke
 app.get("/random", (req, res) => {
   const index = getRandomInt(jokes.length);
-  res.send(jokes[index]);
+  res.json(jokes[index]);
 });
 
 //*2*. GET a specific joke
 app.get("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  if (jokes[id - 1]) {
-    res.send(jokes[id - 1]);
+  const joke = jokes.find(joke => joke.id === id);
+  if (joke) {
+    res.json(joke);
   } else {
-    res.status(400).send({error: `No joke with id ${id}`});
+    res.status(400).json({ error: `No joke with id ${id}` });
   }
 });
 
@@ -40,7 +51,7 @@ app.get("/filter", (req, res) => {
   }
 
   const filteredJokes = jokes.filter(joke => joke.jokeType === type);
-  res.send(filteredJokes);
+  res.json(filteredJokes);
 });
 
 //*4*. POST a new joke
@@ -58,7 +69,7 @@ app.post("/jokes", (req, res) => {
   }
 
   jokes.push(newJoke);
-  res.send(jokes[newJoke.id - 1]);
+  res.json(jokes[newJoke.id - 1]);
 });
 
 //*5*. PUT a joke
@@ -79,9 +90,9 @@ app.put("/jokes/:id", (req, res) => {
 
   if (index >= 0 && index < jokes.length) {
     jokes[index] = updatedJoke;
-    res.send(jokes[index]);
+    res.json(jokes[index]);
   } else {
-    res.status(400).send({ error: "Index out of bounds" })
+    res.status(400).json({ error: "Index out of bounds" })
   }
 });
 
@@ -99,9 +110,9 @@ app.patch("/jokes/:id", (req, res) => {
     const jokeToUpdate = jokes[index];
     const updatedJoke = { ...jokeToUpdate, jokeType: type };
     jokes[index] = updatedJoke;
-    res.send(jokes[index]);
+    res.json(jokes[index]);
   } else {
-    res.status(400).send({ error: "Index out of bounds" })
+    res.status(400).json({ error: "Index out of bounds" })
   }
 });
 
@@ -112,16 +123,16 @@ app.delete("/jokes/:id", (req, res) => {
 
   if (index >= 0 && index < jokes.length) {
     jokes = jokes.filter(joke => joke.id !== index);
-    res.send("Joke was deleted successfully");
+    res.json("Joke was deleted successfully");
   } else {
-    res.status(400).send({ error: "Index out of bounds" })
+    res.status(400).json({ error: "Index out of bounds" })
   }
 });
 
 //*8*. DELETE All jokes
-app.delete("/all", (req, res) => {
+app.delete("/all", authorize, (req, res) => {
   jokes.length = 0;
-  res.send("All jokes were deleted successfully");
+  res.json("All jokes were deleted successfully");
 });
 
 app.listen(port, () => {
