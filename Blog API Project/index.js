@@ -71,11 +71,11 @@ app.patch("/posts/:id", (req, res) => {
   const { title, content, author } = req.body;
   const post = posts.find(post => post.id === id);
   if (post) {
-    if (title !== undefined) post.title = title;
-    if (content !== undefined) post.content = content;
-    if (author !== undefined) post.author = author;
+    if (title) post.title = title;
+    if (content) post.content = content;
+    if (author) post.author = author;
 
-    res.json(posts);
+    res.json(post);
   } else {
     res.sendStatus(400);
   }
