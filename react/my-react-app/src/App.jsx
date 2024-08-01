@@ -1,12 +1,33 @@
-import Student from "./components/student/Student";
+import Button from "./components/Button/Button";
+import Count from "./components/Count/Count";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <>
-      <Student name="John Smith" age={30} />
-      <Student name="Abel Griffith" age={23} />
-      <Student name="Samuel Orion" age={37} />
-      <Student />
+      <Count clickCount={count} />
+      <div>
+        <Button
+          title="Decrement"
+          onTap={() => {
+            setCount(count - 1);
+          }}
+        />
+        <Button
+          title="Reset"
+          onTap={() => {
+            setCount(0);
+          }}
+        />
+        <Button
+          title="Increment"
+          onTap={() => {
+            setCount(count + 1);
+          }}
+        />
+      </div>
     </>
   );
 }
