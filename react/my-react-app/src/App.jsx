@@ -1,13 +1,12 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Fruit from "./Fruit";
+import Student from "./components/student/Student";
 
 function App() {
   return (
     <>
-      <Header />
-      <Fruit />
-      <Footer />
+      <Student name="John Smith" age={30} />
+      <Student name="Abel Griffith" age={23} />
+      <Student name="Samuel Orion" age={37} />
+      <Student />
     </>
   );
 }
