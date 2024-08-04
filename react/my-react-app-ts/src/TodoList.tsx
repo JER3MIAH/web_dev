@@ -16,7 +16,7 @@ function TodoList() {
   }
 
   function addTodo() {
-    if (newTodo != null) {
+    if (newTodo != null && newTodo.title != "") {
       setMyTodos((m) => [...m, newTodo]);
       setNewTodo({ title: "", isCompleted: false });
     }
