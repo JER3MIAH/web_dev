@@ -8,10 +8,11 @@ export type TodoProps = {
 
 export type TodoComponentProps = TodoProps & {
   onDelete: () => void;
+  onCheck: ()=> void;
 };
 
 function Todo(
-  { title, isCompleted , onDelete}: TodoComponentProps,
+  { title, isCompleted , onDelete, onCheck}: TodoComponentProps,
    
 ) {
   return (
@@ -20,7 +21,7 @@ function Todo(
     >
       <p>{title}</p>
       <div>
-        <button className={styles.checkBox}>C</button>
+        <button className={styles.checkBox} onClick={onCheck}>C</button>
         <img src={trashIcon} onClick={onDelete} alt="delete icon" />
       </div>
     </div>

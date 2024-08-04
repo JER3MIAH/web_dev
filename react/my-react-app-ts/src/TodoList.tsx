@@ -25,6 +25,14 @@ function TodoList() {
   function removeTodo(index: number) {
     setMyTodos(myTodos.filter((_, id) => id !== index));
   }
+
+  function checkTodo(index: number) {
+    setMyTodos(
+      myTodos.map((todo, id) =>
+        id === index ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
+  }
   return (
     <>
       <div className={styles.fbWrapper}>
@@ -45,6 +53,9 @@ function TodoList() {
           isCompleted={l.isCompleted}
           onDelete={() => {
             removeTodo(myTodos.indexOf(l));
+          }}
+          onCheck={() => {
+            checkTodo(myTodos.indexOf(l));
           }}
         ></Todo>
       ))}
