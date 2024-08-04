@@ -1,15 +1,26 @@
 import Todo, { TodoProps } from "./Todo";
 import styles from "./TextField.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function TodoList() {
-  //   document.addEventListener("keydown", function (event) {
-  //     const key = event.key.toLowerCase();
-  //     if (key === "enter") addTodo();
-  //   });
-
   const [myTodos, setMyTodos] = useState<TodoProps[]>([]);
   const [newTodo, setNewTodo] = useState<TodoProps>();
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const key = event.key.toLowerCase();
+      if (key === "enter") {
+        event.preventDefault();
+        addTodo();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   function handleKeyboardChange(event: React.ChangeEvent<HTMLInputElement>) {
     setNewTodo({ title: event.target.value, isCompleted: false });
